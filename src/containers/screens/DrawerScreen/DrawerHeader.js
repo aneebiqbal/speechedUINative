@@ -27,7 +27,7 @@ const DrawerHeader = ({navigation}) => {
             user.imageUrl !== undefined &&
             user.imageUrl !== ''
               ? {uri: user.imageUrl}
-              : require('../../../assets/images/person.jpg')
+              : require('../../../assets/images/man3.png')
           }
           style={styles.profilePic}
         />

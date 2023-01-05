@@ -1,9 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-//Screens
-import OrdersScreen from '../containers/screens/OrdersScreen';
-
 
 import {ApplicationStyles, Colors, Images} from '../theme';
 import {createStackNavigator} from '@react-navigation/stack';

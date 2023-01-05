@@ -15,9 +15,6 @@ import BottomStack from './BottomStack';
 
 
 import {connect} from 'react-redux';
-import OrderStatisticsScreen from '../containers/screens/OrdersScreen/OrderStatisticsScreen';
-import OrderHistoryScreen from '../containers/screens/OrdersScreen/OrderDetailsScreen';
-import EditRestaurantDetails from '../containers/screens/SettingsScreen/EditRestaurantDetails';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();

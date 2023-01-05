@@ -1,6 +1,5 @@
 export default {
   user: require('../assets/images/user.jpg'),
-  food: require('../assets/images/food.png'),
   man2: require('../assets/images/man2.png'),
   man3: require('../assets/images/man3.png'),
   facebook: require('../assets/images/facebook.png'),
