@@ -11,7 +11,11 @@ export default {
   white: '#FFF',
   blackCoral: '#5e6977',
   black: '#000',
-  primary: '#F33810',
+  primary: '#E2B65C',
+  lightBlack: '#34313B',
+  lightBlack2: '#52555F',
+
+
   //  drawerHeader: '#777777',
   drawerHeader: '#f1f6fb',
   helpColor: '#FCDED3',

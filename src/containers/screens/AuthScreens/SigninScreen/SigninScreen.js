@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Images, Fonts} from '../../../../theme';
-import {Image, View, Text} from 'react-native';
+import {Images, Fonts, Colors} from '../../../../theme';
+import {Image, View, Text, SafeAreaView} from 'react-native';
 
 import {
   FullwidthButton,
@@ -17,6 +17,7 @@ import { Formik } from 'formik';
 import {signInValidation} from './Validation';
 import strings from '../../../../constants/strings';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Divider } from 'react-native-elements';
 
 const propTypes = {
   navigation: PropTypes.shape({
@@ -48,26 +49,13 @@ const SigninScreen = ({navigation}) => {
   };
 
   return (
-    // <SafeAreaView style={styles.container}>
-    <View style={styles.passwordConfermationContainer}>
-      <View style={styles.imagePCViewStyle}>
-        <Image
-          source={Images.login}
-          style={styles.imagePCStyle}
-        />
+     <SafeAreaView>
+      <View style={{alignItems:'center', marginTop: 20, flexDirection:'column'}}>
+        <Text style={{fontWeight:'600', fontSize: 30}}>{strings.start}</Text>
+        <Text style={{fontWeight:'400', fontSize: 22, color: '#556062', marginTop: 15}}>{strings.loginText}</Text>
       </View>
 
-      {/* <ScrollView> */}
-      <View style={styles.imagePCViewStyle}>
-          <Text style={[Fonts.h4, Fonts.weight1]}>
-            {strings.start}
-          </Text>
-          <Text style={[Fonts.small, Fonts.weight4,styles.createPasswordTextMargin]}>
-            {strings.loginText}
-          </Text>
-        
-
-        <Formik
+      <Formik
           validationSchema={signInValidation}
           validateOnChange={false}
           initialValues={{username: '', password: ''}}
@@ -79,14 +67,12 @@ const SigninScreen = ({navigation}) => {
             <>
               <View style={styles.inputFieldContainer}>
                 <InputField
-                  leftIcon={'email'}
                   placeholder={Strings.emailPlaceholder}
                   text={values.username}
                   setText={handleChange('username')}
                   error={errors.username && errors.username}
                 />
                 <InputField
-                  leftIcon={'key-variant'}
                   placeholder={Strings.password}
                   text={values.password}
                   secureTextEntry
@@ -99,20 +85,17 @@ const SigninScreen = ({navigation}) => {
               </View>
 
               <TouchableOpacity onPress={()=> navigation.navigate('ResetPasswordScreen')}>
-                <Text style={[Fonts.extraSmall, styles.forgotPassword]}>
-                  {strings.forgotPassword}
-                </Text>
+                <Text style={[Fonts.weight3, styles.forgotPassword, {color: Colors.primary, marginBottom:5}]}> {strings.forgotPassword}</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={()=> navigation.navigate('PasswordConfirmationScreen')}>
+              {/* <TouchableOpacity onPress={()=> navigation.navigate('PasswordConfirmationScreen')}>
                 <Text style={[Fonts.extraSmall, styles.forgotPassword]}>
                   {strings.forgotConfermation}
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
 
                 <FullwidthButton
                   labelStyle
-                  notApplyMargin
                   label={Strings.login}
                   onPress={handleSubmit}
                   loading={status === Status.LOADING}
@@ -120,10 +103,68 @@ const SigninScreen = ({navigation}) => {
             </>
           )}
         </Formik>
-        
+        <View style={{flexDirection: 'row', alignItems:'center'}}>
+          <Divider style={{width: 100, marginLeft: 20, marginRight: 20}} />
+          <Text style={{color: Colors.lightBlack2}}>Or continue with</Text>
+          <Divider style={{width: 100,marginLeft: 20, marginRight: 20}} />
         </View>
-      {/* </ScrollView> */}
-    </View>
+
+        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', margin: 30}}>
+              <TouchableOpacity style={{
+                borderWidth: 1,
+                borderColor: Colors.primary,
+                borderRadius: 4,
+                padding: 18,
+                position:'relative',
+              }}>
+                <Image
+                  source={Images.google}
+                  style={{
+                    width: 37,
+                    height: 30,
+                  }}
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity style={{
+                borderWidth: 1,
+                borderColor: Colors.primary,
+                borderRadius: 4,
+                padding: 18,
+              }}>
+                <Image
+                  source={Images.facebook}
+                  style={{
+                    width: 33,
+                    height: 32,
+                  }}
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity style={{
+                borderWidth: 1,
+                borderColor: Colors.primary,
+                borderRadius: 4,
+                padding: 18,
+              }}>
+                <Image
+                  source={Images.twitter}
+                  style={{
+                    width: 30,
+                    height: 30,
+                  }}
+                />
+              </TouchableOpacity>
+        </View>
+        <View style={{flexDirection:'row', alignItems:'center', justifyContent:"center"}}>
+          <Text style={{fontWeight:"600"}}>Not a member?</Text>
+          <TouchableOpacity>
+          <Text style={{color:Colors.primary, fontWeight:"600"}}> Register now</Text>
+          </TouchableOpacity>
+        </View>
+
+     </SafeAreaView>
+     
   )
 };
 

@@ -5,6 +5,7 @@ export default {
   facebook: require('../assets/images/facebook.png'),
   google: require('../assets/images/google.png'),
   apple: require('../assets/images/apple.png'),
+  twitter: require('../assets/images/twitter.png'),
 
   
 };

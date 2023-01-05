@@ -26,7 +26,7 @@ const FullwidthButton = ({
             styles.container,
             style,
             style
-              ? !notApplyMargin && {marginLeft: WP('5')}
+              ? !notApplyMargin && {marginLeft: WP('7')}
               : !notApplyMargin && {margin: WP('7')},
             disabled ? {backgroundColor: Colors.lightGray} : {},
           ]}
@@ -53,10 +53,11 @@ const FullwidthButton = ({
 
 const styles = StyleSheet.create({
   container: {
-    height: HP('6'),
+    height: HP('7'),
     justifyContent: 'center',
-    borderRadius: 16,
-    backgroundColor: Colors.primary
+    borderRadius: 10,
+    backgroundColor: Colors.primary,
+    bottom: 30
   },
   loader: {
     backgroundColor: Colors.primary,

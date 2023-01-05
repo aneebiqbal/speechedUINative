@@ -25,9 +25,10 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   forgotPassword: {
-    color: Colors.primary,
+    color: Colors.lightBlack,
     textAlign: 'right',
-    paddingBottom: 16
+    paddingBottom: 4,
+    right: 22,
   },
   backgroundImage: {
     flex: 1,
@@ -47,7 +48,7 @@ export const styles = StyleSheet.create({
     flexDirection:'row',
     flex: 1,
     alignItems:'center',
-    marginRight:30
+    marginRight:10
   },
   imagePCViewStyle: {
     flex: 0.5
@@ -57,7 +58,8 @@ export const styles = StyleSheet.create({
     width: 350,
   },
   inputFieldContainer: {
-    marginTop: 70
+    marginTop: 70,
+    margin: 20,
   },
   errorStyleContainer: {
     paddingHorizontal: 0
