@@ -35,20 +35,20 @@ const BottomStack = ({props, navigation} )=> {
 
         tabBarIcon: ({focused, color, size}) => {
           // You can return any component that you like here!
-      //     if (route.name === 'HomeStack') {
-      //       return (
-      //       <TouchableOpacity onPress={() => navigation.navigate('OrdersScreen')} style={[styles.container]}>
-      //         <View style={styles.innerContainer}>
-      //           <Image
-      //             source={focused ? Images.orders : Images.ordersUnselected}
-      //             style={styles.imgStyle}
-      //             color={color}
-      //             size={size}
-      //           />
-      //           <Text>Order</Text>
-      //         </View>
-      //       </TouchableOpacity>
-      // )}
+          if (route.name === 'HomeStack') {
+            return (
+            <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={[styles.container]}>
+              <View style={styles.innerContainer}>
+                <Image
+                  source={focused ? Images.orders : Images.ordersUnselected}
+                  style={styles.imgStyle}
+                  color={color}
+                  size={size}
+                />
+                <Text>Order</Text>
+              </View>
+            </TouchableOpacity>
+      )}
       //     if (route.name === 'InventoryScreen') {
       //       return (
       //         <TouchableOpacity onPress={() => navigation.navigate('InventoryScreen')} style={[styles.container]}>

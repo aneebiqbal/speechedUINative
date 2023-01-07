@@ -1,34 +1,44 @@
-import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {Icon} from 'react-native-elements';
-import {ApplicationStyles, Colors, Fonts, Images} from '../../theme';
-import {HP} from '../../utils';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { ApplicationStyles, Colors } from '../../theme';
 
-const propTypes = {};
-
+const PropTypes = {};
 const defaultProps = {};
 
-const ShadowCard = ({heading, image, style, onPress, children}) => {
+const ShadowCard = ({heading, image, style, onPress, children, image2, heading2})  => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.container, ApplicationStyles.shadow, style]}>
-      {image && <View style={styles.innerContainer}>
-        <Image
-          source={image}
-          style={styles.imgStyle}
-        />
-        <Text style={[Fonts.medium, styles.textStyle]}>
+    <View onPress={onPress} style={[styles.container, ApplicationStyles.shadow, style]}>
+      <View style={{flexDirection:'column', justifyContent:"space-between"}}>
+        <Text style={{fontWeight:'500', fontSize: 14}}>
           {heading}
-        </Text>      
-      </View>}
-      {children}
-    </TouchableOpacity>
-  );
-};
+        </Text>
+        <Text style={{fontWeight:'500', fontSize: 14}}>
+          {heading2}
+        </Text>
+        <TouchableOpacity onPress={onPress}>
+          <Image
+            source={image}
+            style={styles.imgStyle}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={{flexDirection:'row',}}>
+        <Image
+          source={image2}
+          style={styles.imgStyle2}
+        />
+      </View>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    padding: 10,
+    padding: 20,
+    backgroundColor:"white",
+    flexDirection:"row",
+    margin: 20,
+    borderRadius: 10
   },
   innerContainer: {
     flexDirection: 'column',
@@ -38,7 +48,14 @@ const styles = StyleSheet.create({
   imgStyle: {
     height: 35,
     width: 35,
-    marginBottom: 20
+    marginBottom: 20,
+    marginTop: 20
+  },
+  imgStyle2: {
+    height: 100,
+    width: 150,
+    left: 100,
+    top: 20
   },
   textStyle: {
     color: Colors.black,
@@ -46,8 +63,8 @@ const styles = StyleSheet.create({
   },
 });
 
-ShadowCard.propTypes = propTypes;
-
+ShadowCard.propTypes = PropTypes;
 ShadowCard.defaultProps = defaultProps;
 
-export default ShadowCard;
+
+export default ShadowCard

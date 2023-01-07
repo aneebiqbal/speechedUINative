@@ -22,15 +22,6 @@ const Header = props => {
     <>
       <View style={[styles.container]}>
         <View style={[styles.leftIcon]}>
-        {props.logo ? (
-            <Image
-              source={Images.logo}
-              height={20}
-              width={20}
-            />)
-            : null}
-
-
           {props.left ? (
             <BackIcon
               name="left"
@@ -41,12 +32,14 @@ const Header = props => {
               }
             />
           ) : props.drawerLeft ? (
-            <Ionicons
-              name="menu-outline"
-              color={Colors.primary}
-              size={28}
-              onPress={props.onPressLeft}
-            />
+            <TouchableOpacity>
+              <Ionicons
+                name="menu-outline"
+                color={Colors.black}
+                size={28}
+                onPress={props.onPressLeft}
+              />
+            </TouchableOpacity>
           ) : null}
         </View>
         {/* <View style={[styles.ml20]}>
@@ -67,9 +60,8 @@ const Header = props => {
           <View>
             {props.user ? (
               <View style={{flexDirection:'row',flex: 1, alignItems:'center'}}>
-                <Text style={[Fonts.bold,{color: 'white', marginRight: 16}]}>Aneeb Iqbal</Text>
                 <Image
-                  source={Images.man}
+                  source={Images.man3}
                   style={{
                     height: 35,
                     width: 35,
@@ -103,7 +95,7 @@ const Header = props => {
 };
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'black',
+    backgroundColor: '#E0E0E0',
     height: HP('8'),
     flexDirection: 'row',
     alignItems: 'center',
@@ -111,8 +103,8 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-between',
   },
   leftIcon: {
-    alignItems: 'flex-end',
-    paddingLeft: 15,
+    alignItems: 'flex-start',
+    paddingLeft: 2,
     flexDirection: 'row',
   },
 
@@ -160,7 +152,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   dividerMargin: {
-    marginVertical: 10,
+    marginVertical: -7,
   },
 });
 

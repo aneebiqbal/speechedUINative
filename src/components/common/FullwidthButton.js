@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 10,
     backgroundColor: Colors.primary,
-    bottom: 30
+    bottom: 30,
+    elevation: 8,
   },
   loader: {
     backgroundColor: Colors.primary,
@@ -65,7 +66,6 @@ const styles = StyleSheet.create({
 });
 
 FullwidthButton.propTypes = propTypes;
-
 FullwidthButton.defaultProps = defaultProps;
 
 export default FullwidthButton;

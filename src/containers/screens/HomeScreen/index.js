@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Image, ImageBackground, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {styles} from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -19,23 +19,81 @@ const defaultProps = {};
 const HomeScreen = ({navigation}) => {
 
   return (
-    <SafeAreaView>
+    <ScrollView>
+    <SafeAreaView style={[styles.container, ]}>
         <Header
-          logo
+          drawerLeft
           user
         />
-        <View style={[styles.container, {justifyContent: 'center'}]}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', margin: 40 }}>
-            <ShadowCard style={{width: 230, paddingVertical: 50, borderRadius: 8}} image={Images.ordersSelected} heading="ORDERS" onPress={() => navigation.navigate('OrdersStatisticsScreen')}/>
-            <ShadowCard style={{width: 230, paddingVertical: 50, borderRadius: 8}} image={Images.inventory} heading="INVENTORY" onPress={() => navigation.navigate('InventoryScreen')}/>
-            <ShadowCard style={{width: 230, paddingVertical: 50, borderRadius: 8}} image={Images.history} heading="HISTORY" onPress={() => navigation.navigate('HistoryScreen')}/>
-          </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-around' , alignItems: 'center', margin: 40 }}>
-            <ShadowCard style={{width: 250, paddingVertical: 50, borderRadius: 8}} image={Images.accounts} heading="MY ACCOUNT" onPress={() => navigation.navigate('MyAccountScreen')}/>
-            <ShadowCard style={{width: 250, paddingVertical: 50, borderRadius: 8}} image={Images.settings} heading="SETTINGS" onPress={() => navigation.navigate('SettingsScreen')}/>
-          </View>
+        <ImageBackground
+        source={Images.background3}
+        style={styles.image}
+      />
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
+        <View style={styles.box}>
+          <Image
+            source={Images.homebox}
+            style={styles.box}
+          />
         </View>
+        <Text style={styles.text}>{strings.weddingSpeeches}</Text>
+      </View>
+
+      <View style={{flexDirection:"row", justifyContent:"center", marginTop: 13}}>
+        <Text style={{fontWeight:'500'}}>{strings.desiredSpeech}</Text>
+      </View>
+
+      <ShadowCard
+        heading={'Bestman’s'}
+        heading2={'Speech'}
+        image={Images.nextButton}
+        image2={Images.homeCard}
+        onPress={() => navigation.navigate('CreateSpeechScreen')}
+      />
+      <View style={{flexDirection:"row", justifyContent: 'space-between', paddingHorizontal: 10, marginTop: -10 }}>
+        <View style={{flex: 0.5}}>
+          <ShadowBox
+          heading={'Groom'}
+          heading2={'Speech'}
+          image={Images.nextButton}
+          image2={Images.groomSpeech}
+          onPress={() => navigation.navigate('CreateSpeechScreen')}
+          />
+        </View>
+        <View style={{flex: 0.5}}>
+          <ShadowBox
+          heading={'Bride'}
+          heading2={'Speech'}
+          image={Images.nextButton}
+          image2={Images.brideSpeech}
+          onPress={() => navigation.navigate('CreateSpeechScreen')}
+          />
+        </View>
+      </View>
+
+      <View style={{flexDirection:"row", justifyContent: 'space-between', paddingHorizontal: 10, }}>
+        <View style={{flex: 0.5, alignItems: 'stretch'}}>
+          <ShadowBox
+          heading2={strings.MiadOfHonor}
+          image={Images.nextButton}
+          image2={Images.maidOfHonor}
+          imgStyle={{marginTop: 5}}
+          onPress={() => navigation.navigate('CreateSpeechScreen')}
+          />
+        </View>
+        <View style={{flex: 0.5}}>
+          <ShadowBox
+          heading={'Bride Father'}
+          heading2={'Speech'}
+          image={Images.nextButton}
+          image2={Images.brideFather}
+          imgStyle={{marginTop: 34}}
+          onPress={() => navigation.navigate('CreateSpeechScreen')}
+          />
+        </View>
+      </View>
     </SafeAreaView>
+    </ScrollView>
   );
 };
 

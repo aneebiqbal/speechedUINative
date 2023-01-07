@@ -8,13 +8,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerScreen from '../containers/screens/DrawerScreen/DrawerScreen';
 import SigninScreen from '../containers/screens/AuthScreens/SigninScreen/SigninScreen';
-import PasswordConfirmationScreen from '../containers/screens/AuthScreens/PasswordConfirmationScreen/PasswordConfirmationScreen';
-import ResetPasswordScreen from '../containers/screens/AuthScreens/ResetPasswordScreens/ResetPasswordScreen';
+import SignUpScreen from '../containers/screens/AuthScreens/SignUpScreen/index';
 import HomeScreen from '../containers/screens/HomeScreen';
-import BottomStack from './BottomStack';
-
 
 import {connect} from 'react-redux';
+import CreateSpeechScreen from '../containers/screens/CreateSpeechScreen';
+import FactsScreen from '../containers/screens/FactsScreen';
+import SpeechToneScreen from '../containers/screens/SpeechToneScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -22,7 +22,7 @@ const Drawer = createDrawerNavigator();
 const AppStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="BottomStack"
+      initialRouteName="HomeScreen"
       headerMode={'screen'}
       screenOptions={{
         headerTintColor: 'black',
@@ -31,11 +31,6 @@ const AppStack = () => {
         },
         headerBackTitleVisible: false,
       }}>
-      <Stack.Screen
-        name="BottomStack"
-        component={BottomStack}
-        options={{headerShown: false}}
-      />
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
@@ -62,14 +57,29 @@ const AuthStack = () => {
         component={SigninScreen}
         options={{headerShown: false}}
       />
-       <Stack.Screen
-        name="ResetPasswordScreen"
-        component={ResetPasswordScreen}
+      <Stack.Screen
+        name="SignUpScreen"
+        component={SignUpScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="PasswordConfirmationScreen"
-        component={PasswordConfirmationScreen}
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CreateSpeechScreen"
+        component={CreateSpeechScreen}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="FactsScreen"
+        component={FactsScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SpeechToneScreen"
+        component={SpeechToneScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

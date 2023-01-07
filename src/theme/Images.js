@@ -6,6 +6,20 @@ export default {
   google: require('../assets/images/google.png'),
   apple: require('../assets/images/apple.png'),
   twitter: require('../assets/images/twitter.png'),
+  background: require('../assets/images/background.png'),
+  background2: require('../assets/images/background2.png'),
+  background3: require('../assets/images/background3.png'),
+  homebox: require('../assets/images/homebox.png'),
+  homeCard: require('../assets/images/HomeCard.png'),
+  nextButton: require('../assets/images/nextButton.png'),
+  groomSpeech: require('../assets/images/groomSpeech.png'),
+  brideFather: require('../assets/images/brideFather.png'),
+  maidOfHonor: require('../assets/images/maidOfHonor.png'),
+  brideSpeech: require('../assets/images/brideSpeech.png'),
+  bridalSpeech2: require('../assets/images/bridalSpeech2.png'),
+  funny: require('../assets/images/funny.png'),
+  emotional: require('../assets/images/emotional.png'),
+  poetic: require('../assets/images/poetic.png'),
 
-  
+
 };

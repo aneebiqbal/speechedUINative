@@ -6,6 +6,23 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection:'row',
     backgroundColor: '#fff',
+    overflow: 'hidden'
+
+  },
+  image: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
+  image2: {
+    position:'absolute',
+    width: 177,
+    height: 299,
+    left: 0,
+    top: 35,
+    //transform: [{ rotate: '20deg' }],
   },
   logoStyle: {
     width: 50,

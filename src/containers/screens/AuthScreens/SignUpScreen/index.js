@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {Images, Fonts, Colors} from '../../../../theme';
-import {Image, View, Text, SafeAreaView} from 'react-native';
+import {Image, View, Text, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity} from 'react-native';
 
 import {
   FullwidthButton,
@@ -10,13 +10,12 @@ import {
 
 import Strings from '../../../../constants/strings';
 import {styles} from '../styles';
-import {signIn} from '../../../../actions/AccountActions';
+import {signIn, signUp} from '../../../../actions/AccountActions';
 import {useDispatch, useSelector} from 'react-redux';
 import Status from '../../../../constants/status';
 import { Formik } from 'formik';
-import {signInValidation} from './Validation';
+import {signInValidation} from '../SigninScreen/Validation';
 import strings from '../../../../constants/strings';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Divider } from 'react-native-elements';
 
 const propTypes = {
@@ -29,7 +28,7 @@ const propTypes = {
 
 const defaultProps = {};
 
-const SigninScreen = ({navigation}) => {
+const SignUpScreen = ({navigation}) => {
 
   const dispatch = useDispatch();
   const [error, setError] = useState('');
@@ -38,9 +37,10 @@ const SigninScreen = ({navigation}) => {
   const handleSubmitEvent = values => {  
     setError('');
     dispatch(
-      signIn(
+      signUp(
         {
           username: values.username,
+          email: values.email,
           password: values.password,
         },
         setError,
@@ -49,25 +49,26 @@ const SigninScreen = ({navigation}) => {
   };
 
   return (
+    <ScrollView>
      <SafeAreaView >
-      <Image
+      <ImageBackground
          source={Images.background}
-         style={styles.image}
+         style={[styles.image, {position: 'absolute',}]}
       />
-      <Image
+      <ImageBackground
          source={Images.background2}
-         style={styles.image2}
+         style={[styles.image2,{position: 'absolute',}]}
       />
 
       <View style={{alignItems:'center', marginTop: 20, flexDirection:'column'}}>
-        <Text style={{fontWeight:'600', fontSize: 30}}>{strings.start}</Text>
-        <Text style={{fontWeight:'400', fontSize: 22, color: '#556062', marginTop: 15}}>{strings.loginText}</Text>
+        <Text style={{fontWeight:'600', fontSize: 30}}>{strings.signupnow}</Text>
+        <Text style={{fontWeight:'400', fontSize: 22, color: '#556062', marginTop: 15}}>{strings.signupHeading}</Text>
       </View>
 
       <Formik
           validationSchema={signInValidation}
           validateOnChange={false}
-          initialValues={{username: '', password: ''}}
+          initialValues={{username: '',email:'', password: ''}}
           onSubmit={values => {
             handleSubmitEvent(values);
           }}
@@ -75,11 +76,18 @@ const SigninScreen = ({navigation}) => {
           {({handleChange, handleBlur, handleSubmit, values, errors}) => (
             <>
               <View style={styles.inputFieldContainer}>
-                <InputField
-                  placeholder={Strings.emailPlaceholder}
+              <InputField
+                  placeholder={Strings.fullname}
                   text={values.username}
                   setText={handleChange('username')}
                   error={errors.username && errors.username}
+                  style={{borderRadius: 10}}
+                />
+                <InputField
+                  placeholder={Strings.emailPlaceholder}
+                  text={values.email}
+                  setText={handleChange('email')}
+                  error={errors.email && errors.email}
                   style={{borderRadius: 10}}
                 />
                 <InputField
@@ -94,19 +102,9 @@ const SigninScreen = ({navigation}) => {
                 <Text style={styles.errorStyle}>{error}</Text>
               </View>
 
-              <TouchableOpacity>
-                <Text style={[Fonts.weight3, styles.forgotPassword, {color: Colors.black, marginBottom:5}]}> {strings.forgotPassword}</Text>
-              </TouchableOpacity>
-
-              {/* <TouchableOpacity onPress={()=> navigation.navigate('PasswordConfirmationScreen')}>
-                <Text style={[Fonts.extraSmall, styles.forgotPassword]}>
-                  {strings.forgotConfermation}
-                </Text>
-              </TouchableOpacity> */}
-
                 <FullwidthButton
                   labelStyle
-                  label={Strings.login}
+                  label={Strings.signup}
                   onPress={handleSubmit}
                   loading={status === Status.LOADING}
                 />
@@ -115,7 +113,7 @@ const SigninScreen = ({navigation}) => {
         </Formik>
         <View style={{flexDirection: 'row', alignItems:'center'}}>
           <Divider style={{width: 100, marginLeft: 20, marginRight: 20}} />
-          <Text style={{color: Colors.lightBlack2}}>Or continue with</Text>
+          <Text style={{color: Colors.lightBlack2}}>Or SignUp with</Text>
           <Divider style={{width: 100,marginLeft: 20, marginRight: 20}} />
         </View>
 
@@ -126,8 +124,7 @@ const SigninScreen = ({navigation}) => {
                 borderRadius: 4,
                 padding: 18,
                 position:'relative',
-              }} 
-              onPress={()=> navigation.navigate('HomeScreen')}>
+              }}>
                 <Image
                   source={Images.google}
                   style={{
@@ -167,19 +164,18 @@ const SigninScreen = ({navigation}) => {
                 />
               </TouchableOpacity>
         </View>
-        <View style={{flexDirection:'row', alignItems:'center', justifyContent:"center"}}>
-          <Text style={{fontWeight:"600"}}>Not a member?</Text>
-          <TouchableOpacity onPress={()=> navigation.navigate('SignUpScreen')}>
-          <Text style={{color:Colors.primary, fontWeight:"600"}}> Register now</Text>
+        <View style={{flexDirection:'row', alignItems:'center', justifyContent:"center", marginBottom: 15}}>
+          <Text style={{fontWeight:"600"}}>Already a member?</Text>
+          <TouchableOpacity onPress={()=> navigation.navigate('SigninScreen')}>
+          <Text style={{color:Colors.primary, fontWeight:"600"}}> Login now</Text>
           </TouchableOpacity>
         </View>
-
      </SafeAreaView>
-     
+     </ScrollView>
   )
 };
 
-SigninScreen.propTypes = propTypes;
-SigninScreen.defaultProps = defaultProps;
+SignUpScreen.propTypes = propTypes;
+SignUpScreen.defaultProps = defaultProps;
 
-export default SigninScreen;
+export default SignUpScreen;

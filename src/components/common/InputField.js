@@ -31,8 +31,8 @@ const InputField = ({
       <TextInput
         mode="flat"
         disabled={isDisabled}
-        underlineColor={Colors.placeholder}
-        activeUnderlineColor={Colors.primary}
+        underlineColor={Colors.transparent}
+        activeUnderlineColor={Colors.transparent}
         placeholderTextColor={Colors.placeholder}
         style={[styles.inputStyle, isDisabled && styles.disabled]}
         placeholder={placeholder}
@@ -55,6 +55,9 @@ const styles = StyleSheet.create({
     marginBottom: HP('1'),
     backgroundColor: '#fff',
     color: Colors.placeholder,
+    borderRadius: 20,
+    borderTopEndRadius: 20,
+    borderTopStartRadius: 20
   },
   disabled: {
     borderBottomColor: Colors.placeholder,

@@ -29,41 +29,6 @@ const DrawerScreen = ({navigation}) => {
       {/* <DrawerHeader navigation={navigation} /> */}
 
       <View style={styles.marginTop}>
-        <DrawerItem
-          title={strings.orderTitle}
-          image={Images.ordersDrawer}
-          onPress={() => {
-            navigation.closeDrawer();
-             navigation.replace('OrdersScreen');
-          }}
-        />
-
-        <DrawerItem
-          title={strings.inventory}
-          image={Images.inventory}
-          onPress={() => {
-            navigation.closeDrawer();
-             navigation.replace('InventoryScreen');
-          }}
-        />
-
-        <DrawerItem
-          title={strings.history}
-          image={Images.history}
-          onPress={() => {
-            navigation.closeDrawer();
-             navigation.replace('InventoryScreen');
-          }}
-        />
-
-        <DrawerItem
-          title={strings.myAccount}
-          image={Images.accounts}
-          onPress={() => {
-            navigation.closeDrawer();
-             navigation.replace('InventoryScreen');
-          }}
-        />
       </View>
 
       <ButtonIconOrText

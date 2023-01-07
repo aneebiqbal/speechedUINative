@@ -56,6 +56,6 @@ export const styles = StyleSheet.create({
     zIndex: 10,
   },
   marginTop: {
-    marginTop: HP('2'),
+    // /marginTop: HP('2'),
   },
 });
