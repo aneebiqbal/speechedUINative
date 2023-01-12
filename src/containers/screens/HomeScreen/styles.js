@@ -3,9 +3,9 @@ import { Colors } from '../../../theme';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: 'white',
     height: '100%',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   image: {
     top: -60,

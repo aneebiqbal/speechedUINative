@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 import {styles} from './styles';
 import { FullwidthButton, Header, InputField } from '../../../components/common';
-import { Images } from '../../../theme';
+import { ApplicationStyles, Images } from '../../../theme';
 import strings from '../../../constants/strings';
 
 
@@ -48,7 +48,7 @@ const FactsScreen = ({navigation}) => {
             </View>
         </View>
 
-        <View style={styles.inputFieldContainer}>
+        <View style={[styles.inputFieldContainer, ApplicationStyles.shadow]}>
             <InputField
                 placeholder={strings.metBride}
                 setText={setMetBride}
@@ -69,7 +69,7 @@ const FactsScreen = ({navigation}) => {
                 onPress={() => {
                     onNextPress();
                     navigation.navigate('SpeechToneScreen');
-                  }}
+                }}
             />
         </View>
     </SafeAreaView>

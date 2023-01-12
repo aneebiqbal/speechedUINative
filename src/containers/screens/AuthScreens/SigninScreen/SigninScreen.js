@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Images, Fonts, Colors} from '../../../../theme';
+import {Images, Fonts, Colors, ApplicationStyles} from '../../../../theme';
 import {Image, View, Text, SafeAreaView} from 'react-native';
 
 import {
@@ -74,7 +74,7 @@ const SigninScreen = ({navigation}) => {
         >
           {({handleChange, handleBlur, handleSubmit, values, errors}) => (
             <>
-              <View style={styles.inputFieldContainer}>
+              <View style={[styles.inputFieldContainer, ApplicationStyles.shadow]}>
                 <InputField
                   placeholder={Strings.emailPlaceholder}
                   text={values.username}

@@ -70,23 +70,18 @@ const Header = props => {
               </View>
             ) : null}
           </View>
-          {/* <View>
-            {props.cart ? (
+
+          <TouchableOpacity>
+            {props.edit ? (
               <View style={styles.mr20}>
                 <Ionicons
-                  name="cart-outline"
+                  name="pencil"
                   color={props.withoutBackground ? 'white' : 'black'}
-                  size={28}
-                  onPress={() =>
-                    totalItems > 0 && navigation.navigate('ItemListingScreen')
-                  }
+                  size={22}
                 />
-                <View style={styles.filledCart}>
-                  <Text style={Fonts.white}>{totalItems}</Text>
-                </View>
               </View>
             ) : null}
-          </View> */}
+          </TouchableOpacity>
         </View>
       </View>
       {props.divider && <Divider style={styles.dividerMargin} />}
@@ -95,7 +90,7 @@ const Header = props => {
 };
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: 'white',
     height: HP('8'),
     flexDirection: 'row',
     alignItems: 'center',
@@ -152,7 +147,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   dividerMargin: {
-    marginVertical: -7,
+    marginVertical: -3,
   },
 });
 

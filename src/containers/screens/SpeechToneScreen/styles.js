@@ -3,15 +3,15 @@ import { Colors } from '../../../theme';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: 'white',
     height: '100%',
     overflow: 'hidden'
   },
   image: {
-    top: 10,
-    left: -130,
-    width: 600,
-    height: 900,
+    top: 120,
+    left: 3,
+    width: 400,
+    height: 700,
     position:'absolute',
     backgroundColor: Colors.transparent,
   },

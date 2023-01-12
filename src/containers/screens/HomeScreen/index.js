@@ -20,7 +20,7 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <ScrollView>
-    <SafeAreaView style={[styles.container, ]}>
+    <SafeAreaView style={[styles.container]}>
         <Header
           drawerLeft
           user

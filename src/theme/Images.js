@@ -20,6 +20,11 @@ export default {
   funny: require('../assets/images/funny.png'),
   emotional: require('../assets/images/emotional.png'),
   poetic: require('../assets/images/poetic.png'),
+  poetic2: require('../assets/images/poetic2.png'),
+  background4: require('../assets/images/background4.png'),
+  flower: require('../assets/images/flower.png'),
+  HomeButton: require('../assets/images/HomeButton.png'),
+  applePay: require('../assets/images/applePay.png'),
 
 
 };

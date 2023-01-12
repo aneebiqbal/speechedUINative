@@ -14,11 +14,6 @@ const propTypes = {
   };
 const SpeechToneScreen = ({navigation}) => {
     const [currentStep, setCurrentStep] = useState(2);
-    const [brideName, setBrideName] = useState('');
-    const [groomName, setGroomName] = useState('');
-    const [fatherName, setFatherName] = useState('');
-    const [motherName, setMotherName] = useState('');
-
 
     const onNextPress = () => {
         setCurrentStep((currentStep + 1) % 3);
@@ -32,7 +27,7 @@ const SpeechToneScreen = ({navigation}) => {
             divider
         />
         <ImageBackground
-            source={Images.background3}
+            source={Images.background4}
             style={styles.image}
         />
         <View style={styles.container2}>
@@ -59,6 +54,7 @@ const SpeechToneScreen = ({navigation}) => {
                     alignSelf: 'center',
                 }}
                 label={'Funny'}
+                onPress={() => navigation.navigate('DetailConfirmationScreen')}
             />
             <ButtonIconOrText
                 source={Images.emotional}
@@ -68,7 +64,7 @@ const SpeechToneScreen = ({navigation}) => {
                     alignSelf: 'center',
                 }}
                 label={'Emotional'}
-
+                onPress={() => navigation.navigate('DetailConfirmationScreen')}
             />
             <ButtonIconOrText
                 source={Images.poetic}
@@ -78,6 +74,7 @@ const SpeechToneScreen = ({navigation}) => {
                     alignSelf: 'center',
                 }}
                 label={'Poetic'}
+                onPress={() => navigation.navigate('DetailConfirmationScreen')}
             />
         </View>
 

@@ -3,19 +3,18 @@ import { Colors } from '../../../theme';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: 'white',
     height: '100%',
     overflow: 'hidden'
   },
   image: {
-    top: 10,
-    left: -130,
-    width: 600,
-    height: 900,
+    top: 150,
+    left: -60,
+    width: 500,
+    height: 800,
     position:'absolute',
     backgroundColor: Colors.transparent,
   },
-  
   container2: {
     flexDirection: 'row',
     alignItems: 'center',

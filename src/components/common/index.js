@@ -14,6 +14,8 @@ import PasswordConfrmation from './PasswordConfrmation'
 import MapsView from './MapsView'
 import CustomerDetailCard from './CustomerDetailCard'
 import RiderDetailsRowCard from './RiderDetailsRowCard'
+import GeneralInfoCard from './GeneralInfoCard'
+import SpeechToneCard from './SpeechToneCard'
 
 
 
@@ -34,5 +36,7 @@ export {
   SearchField,
   MapsView,
   CustomerDetailCard,
-  RiderDetailsRowCard
+  RiderDetailsRowCard,
+  GeneralInfoCard,
+  SpeechToneCard
 };

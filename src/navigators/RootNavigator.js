@@ -15,6 +15,7 @@ import {connect} from 'react-redux';
 import CreateSpeechScreen from '../containers/screens/CreateSpeechScreen';
 import FactsScreen from '../containers/screens/FactsScreen';
 import SpeechToneScreen from '../containers/screens/SpeechToneScreen';
+import DetailConfirmationScreen from '../containers/screens/DetailsConfirmationScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -80,6 +81,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="SpeechToneScreen"
         component={SpeechToneScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DetailConfirmationScreen"
+        component={DetailConfirmationScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
